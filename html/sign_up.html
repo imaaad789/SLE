@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .signup-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 320px;
+            margin: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background-color: #45a049;
+        }
+
+        .signup-btn:active {
+            background-color: #3e8e41;
+        }
+
+        .signup-btn:disabled {
+            background-color: #9e9e9e;
+            cursor: not-allowed;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        input:focus {
+            outline: 2px solid #007bff;
+            transition: outline 0.2s;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form action="index.html" id="login-form" onsubmit="return validation()">
+            <input type="text" class="input-field" id="name" placeholder="Full Name" required><br>
+            <input type="email" class="input-field" id="email" placeholder="Email Address" required><br>
+            <input type="password" class="input-field" id="password" placeholder="Password" required><br>
+            <input type="password" class="input-field" id="conf-password" placeholder="Confirm Password" required><br>
+            <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+        <div class="login-link">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+    <script src="../javascript/sign-up.js"></script>
+</body>
+</html>

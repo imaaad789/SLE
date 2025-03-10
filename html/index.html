@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Learning Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="../css/animation.css">
+</head>
+<body>
+    <div class="app" id="app">
+        <header class="header">
+            <div class="container header-container">
+                <div class="logo">
+                    <img src="../img/logo1-removebg-preview.png" alt="logo">
+                </div>
+                <div class="user-section">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="dropdown">
+                        <button class="user-button" id="userButton">
+                            <i class="fas fa-user user-icon"></i>
+                            <span>John Doe</span>
+                        </button>
+                        <div class="dropdown-content" id="userDropdown">
+                            <a href="#"><i class="fas fa-user-circle"></i> Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="container dashboard-container">
+                <div class="welcome-box card fade-in">
+                    <div class="card-header">
+                        <h2 class="card-title">Welcome to Your English Learning Journey</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="welcome-content">
+                            <p class="welcome-description">
+                                You need to put in consistent effort to advance to the next stage. Remember, you have a limited timeframe to achieve this goal.
+                            </p>
+                            <div class="tips-box">
+                                <h3>Tips for Success:</h3>
+                                <ul>
+                                    <li>Focus on effective learning strategies</li>
+                                    <li>Practice continuously with interactive resources</li>
+                                    <li>Understand core concepts before moving forward</li>
+                                    <li>Apply what you've learned in practical exercises</li>
+                                    <li>Review your progress at the end of each day</li>
+                                </ul>
+                            </div>
+                            <p class="success-message">
+                                Success in this stage will unlock the next level of your language journey!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section fade-in">
+                    <div class="card info-card">
+                        <div class="card-header">
+                            <h2 class="card-title">Your Progress</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-item">
+                                <i class="fas fa-calendar info-icon"></i>
+                                <div class="info-details">
+                                    <p class="info-label">Course Timeline</p>
+                                    <div class="timeline-grid">
+                                        <div>
+                                            <span class="muted-text">Start:</span> 05/03/2025
+                                        </div>
+                                        <div>
+                                            <span class="muted-text">End:</span> 07/03/2025
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <i class="fas fa-award info-icon"></i>
+                                <div class="info-details">
+                                    <div class="progress-header">
+                                        <p class="info-label">Level A1 Progress</p>
+                                        <span class="progress-value" id="levelProgressValue">50%</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" id="levelProgressBar" style="width: 50%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <i class="fas fa-clock info-icon"></i>
+                                <div class="info-details">
+                                    <div class="progress-header">
+                                        <p class="info-label">Time Elapsed</p>
+                                        <span class="progress-value" id="timeProgressValue">30%</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" id="timeProgressBar" style="width: 30%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card timer-card fade-in">
+                        <div class="card-content">
+                            <h3 class="timer-title">Time Remaining</h3>
+                            <div class="countdown-container" id="countdown">
+                                <div class="countdown-item">
+                                    <div class="countdown-value" id="days">00</div>
+                                    <span class="countdown-label">Days</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <div class="countdown-value" id="hours">00</div>
+                                    <span class="countdown-label">Hours</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <div class="countdown-value" id="minutes">00</div>
+                                    <span class="countdown-label">Minutes</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <div class="countdown-value" id="seconds">00</div>
+                                    <span class="countdown-label">Seconds</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <h2 class="section-title fade-in">Practice Tests</h2>
+                <div class="test-options-container">
+                    <!-- Easy Test -->
+                    <div class="test-card card fade-in" data-difficulty="easy">
+                        <div class="test-card-content">
+                            <h3 class="test-title">Test English Facile</h3>
+                            <p class="test-description">Perfect for beginners. Practice basic vocabulary and simple grammar structures.</p>
+                            <div class="test-details">
+                                <div class="test-detail">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>30 questions + Crossword</span>
+                                </div>
+                            </div>
+                            <button class="test-button">
+                                <a href="../html/interface1.html" target="_blank">Let's Go <i class="fas fa-arrow-right"></i></a>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Medium Test -->
+                    <div class="test-card card fade-in" data-difficulty="medium">
+                        <div class="test-card-content">
+                            <h3 class="test-title">Test English Moyenne</h3>
+                            <p class="test-description">For intermediate learners. Practice more complex sentences and expressions.</p>
+                            <div class="test-details">
+                                <div class="test-detail">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>30 questions + Crossword</span>
+                                </div>
+                            </div>
+                            <button class="test-button">
+                                <a href="../html/interface2.html">Let's Go <i class="fas fa-arrow-right"></i></a>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Hard Test -->
+                    <div class="test-card card fade-in" data-difficulty="hard">
+                        <div class="test-card-content">
+                            <h3 class="test-title">Test English Hard</h3>
+                            <p class="test-description">For advanced learners. Challenge yourself with complex grammar and vocabulary.</p>
+                            <div class="test-details">
+                                <div class="test-detail">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>30 questions + Crossword</span>
+                                </div>
+                            </div>
+                            <button class="test-button">
+                                <a href="../html/interface3.html">Let's Go <i class="fas fa-arrow-right"></i></a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../javascript/script.js"></script>
+    <script src="../javascript/animation.js"></script>
+</body>
+</html>

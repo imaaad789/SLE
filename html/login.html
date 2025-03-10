@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 320px;
+            margin: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 13px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-btn:hover {
+            background-color: #45a049;
+        }
+        .forgot-password {
+            text-align: left;
+            margin-bottom: 13px;
+        }
+        .forgot-password a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .text-sign p{
+            font-size: 14px;
+        }
+        .text-sign a{
+            text-decoration: none;
+            color: #007bff;
+            cursor: pointer;
+        }
+        input:hover{
+            transition: all 0.4s ease-in-out;
+            outline: 1px solid red;
+        }
+        input:focus{
+            transition: all 0.5s;
+            outline: 1.8px solid #007bff ;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="index.html" method="post" onsubmit="validation()">
+            <input type="text" class="input-field" placeholder="Username" required><br>
+            <input type="password" class="input-field" placeholder="Password" required><br>
+            <div class="forgot-password">
+                <a href="forget.html">Forgot password?</a>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <div class="text-sign">
+                <p>Don't have an account yet? <a href="sign_up.html">Sign Up here</a></p>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+</html>

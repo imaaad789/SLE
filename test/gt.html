@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        :root {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f8f9fa;
+            --text-color: #333333;
+            --accent: #2575fc;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] {
+            --primary-bg: #1a1a1a;
+            --secondary-bg: #2a2a2a;
+            --text-color: #e0e0e0;
+            --accent: #4da3ff;
+            --shadow: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #2196F3;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: background 0.5s ease;
+        }
+
+        [data-theme="dark"] .stars-container {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        }
+
+        [data-theme="light"] .stars-container {
+            background: linear-gradient(135deg, #e0e0e0 0%, #f0f0f0 100%);
+        }
+
+        .star {
+            position: absolute;
+            background: var(--text-color);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 5s linear infinite;
+            transition: background-color 0.3s ease;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            25%, 75% { transform: translateY(10px); }
+        }
+
+        .signup-container {
+            background: var(--primary-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px var(--shadow);
+            width: 100%;
+            max-width: 420px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-header {
+            background: var(--accent);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .form-body {
+            padding: 30px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--secondary-bg);
+            border-radius: 8px;
+            background: var(--primary-bg);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .signup-btn {
+            background: var(--accent);
+            border: none;
+            color: white;
+            transition: background 0.3s ease;
+        }
+
+        /* Rest of the previous styles remain the same... */
+    </style>
+</head>
+<body>
+    <div class="theme-toggle">
+        <label class="theme-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+    
+    <div class="stars-container" id="starsContainer"></div>
+    <div class="signup-container">
+        <!-- Existing form content here -->
+    </div>
+
+    <script>
+        // Theme switching logic
+        const themeToggle = document.getElementById('themeToggle');
+        
+        const setTheme = (theme) => {
+            document.body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        };
+
+        // Check local storage for theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.body.setAttribute('data-theme', savedTheme);
+            themeToggle.checked = savedTheme === 'dark';
+        }
+
+        themeToggle.addEventListener('change', (e) => {
+            setTheme(e.target.checked ? 'dark' : 'light');
+        });
+
+        // Star animation setup
+        function createStars() {
+            const container = document.getElementById('starsContainer');
+            const starCount = window.innerWidth < 600 ? 50 : 150;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                const size = Math.random() * 3 + 1;
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                const duration = Math.random() * 5 + 3;
+                const delay = Math.random() * 5;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}px`;
+                star.style.top = `${y}px`;
+                star.style.animationDuration = `${duration}s`;
+                star.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(star);
+            }
+        }
+
+        // Initialize stars on page load
+        window.addEventListener('load', () => {
+            createStars();
+            
+            // Recreate stars on window resize
+            window.addEventListener('resize', () => {
+                document.getElementById('starsContainer').innerHTML = '';
+                createStars();
+            });
+        });
+
+        // Existing form validation script here...
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/interface1.css">
+</head>
+<body>
+    <main>
+        <div class="start" id="start1">
+            <div class="start-text">
+                <p>If your ready just click on button</p>
+            </div>
+            <div>
+                <button id="start-btn">Start</button>
+            </div>
+        </div>
+        
+    </main>
+    <div id="puzzle" style="display: none;">
+        <div class="phase-indicator">
+            <h2>Phase 4 of 4</h2>
+        </div>
+
+        <div class="grid" id="crossword"></div>
+        
+        <div class="word-panel">
+            <div class="input-group">
+                <input type="text" id="wordInput" placeholder="Enter word">
+                <button onclick="validateWord()">Check</button>
+            </div>
+            
+            <div class="feedback" id="feedback"></div>
+            
+            <div class="word-list">
+                <h3>Words to Find:</h3>
+                <p>Try to find the word that contains these letters</p>
+                <ul id="wordList"></ul>
+            </div>
+        </div>
+    </div>
+    <script src="../javascript/interface1.js"></script>
+</body>
+</html>

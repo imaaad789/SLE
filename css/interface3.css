@@ -1,0 +1,681 @@
+/* Base root variables for light and dark themes */
+:root {
+    --background: #ffffff;
+    --foreground: #0f172a;
+    --card: #ffffff;
+    --card-foreground: #0f172a;
+    --primary: #15803d;
+    --primary-foreground: #f8fafc;
+    --secondary: #f1f5f9;
+    --secondary-foreground: #1e293b;
+    --muted: #f1f5f9;
+    --highlight-color: #27ae60;
+    --muted-foreground: #64748b;
+    --accent: #f1f5f9;
+    --accent-foreground: #1e293b;
+    --destructive: #ef4444;
+    --destructive-foreground: #f8fafc;
+    --border: #e2e8f0;
+    --input: #e2e8f0;
+    --ring: #15803d;
+    --radius: 0.5rem;
+    --header-height: 64px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    
+    /* Test difficulty colors */
+    --easy: #15803d;
+    --medium: #ca8a04;
+    --hard: #b91c1c;
+}
+
+.dark {
+    --background: #0f172a;
+    --foreground: #f8fafc;
+    --card: #1e293b;
+    --card-foreground: #f8fafc;
+    --primary: #22c55e;
+    --primary-foreground: #0f172a;
+    --secondary: #334155;
+    --secondary-foreground: #f8fafc;
+    --muted: #334155;
+    --muted-foreground: #94a3b8;
+    --accent: #334155;
+    --accent-foreground: #f8fafc;
+    --destructive: #7f1d1d;
+    --destructive-foreground: #f8fafc;
+    --border: #334155;
+    --input: #334155;
+    --ring: #22c55e;
+    
+    /* Test difficulty colors - dark mode */
+    --easy: #22c55e;
+    --medium: #eab308;
+    --hard: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: var(--transition);
+}
+
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+/* Theme switcher button */
+.theme-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--card);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.theme-switcher:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.theme-switcher i {
+    font-size: 20px;
+    color: var(--foreground);
+}
+
+.quiz-container, .container-image, .container-sentence {
+    max-width: 1000px;
+    width: 100%;
+    margin: 20px auto;
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+}
+
+h1, h2, h3 {
+    color: var(--foreground);
+}
+.container-image h1,.container-sentence h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.container-image p, .container-Quize p,.container-sentence p{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.question {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 24px;
+    color: var(--foreground);
+    margin-bottom: 30px;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+.option {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+.option label {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.option:hover {
+    background-color: var(--accent);
+}
+
+.option input[type="radio"] {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 19px;
+    border-radius: 50%;
+    accent-color: var(--primary);
+}
+
+.option-text {
+    margin: auto 0px;
+    font-size: 17px;
+    color: var(--foreground);
+}
+
+.start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+}
+
+.start-text {
+    font-size: 24px;
+    color: var(--foreground);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+#start-btn {
+    height: 40px;
+    border: 0;
+    border-radius: var(--radius);
+    padding: 0px 40px;
+    cursor: pointer;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-size: 18px;
+    margin-top: 15px;
+    transition: var(--transition);
+}
+
+#start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.valide-btn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    padding: 25px 0px;
+}
+
+#Previous, #next {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#Previous:hover, #next:hover {
+    background-color: var(--ring);
+    transform: translateY(-2px);
+}
+
+#Previous:focus, #next:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.4);
+}
+
+/* Image item styles */
+.image-item, .sentence-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: var(--card);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Image container styles */
+.image-container, .sentence-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.sentence-container p {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--foreground);
+}
+
+/* Input container styles */
+.input-container, .input-sentence {
+    margin-top: 1rem;
+}
+
+.input-container label, .input-sentence label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--muted-foreground);
+}
+
+.input-container input[type="text"], .input-sentence input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--input);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    background-color: var(--background);
+    color: var(--foreground);
+    transition: var(--transition);
+}
+
+.input-container input[type="text"]:focus, .input-sentence input[type="text"]:focus {
+    outline: none;
+    border-color: var(--ring);
+    box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.2);
+}
+
+.input-container input[type="text"]::placeholder, .input-sentence input[type="text"]::placeholder {
+    color: var(--muted-foreground);
+}
+
+.button-container, .button-sentence {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.button-container button, .button-sentence button {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.button-container button:hover, .button-sentence button:hover {
+    background-color: var(--ring);
+    transform: translateY(-2px);
+}
+
+.button-container button:focus, .button-sentence button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.4);
+}
+
+.phase-indicator {
+    color: var(--primary-foreground);
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.phase-indicator h2{
+    color: var(--foreground);
+
+}
+.error-message {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-left: 5px solid var(--destructive);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: var(--radius);
+}
+
+.error-message h3 {
+    color: var(--destructive);
+    margin-bottom: 10px;
+}
+
+.completion-card {
+    align-self: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 35px auto 0;
+    background-color: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 40px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.completion-card h2 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.completion-card p {
+    color: var(--muted-foreground);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+.score-summary h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--foreground);
+}
+
+.score-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.score-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.score-items div {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(21, 128, 61, 0.3);
+    transition: var(--transition);
+}
+
+.score-items div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(21, 128, 61, 0.4);
+}
+
+.score-items div span {
+    color: var(--primary-foreground);
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.score-items p {
+    color: var(--muted-foreground);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+.btn-secondary a{
+    text-decoration: none;
+    color: var(--primary);
+}
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    background-color: var(--ring);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(21, 128, 61, 0.1);
+}
+
+.total-score-box {
+    width: 50%;
+    margin: 0 auto 14px;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.total-score-label {
+    color: var(--foreground);
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.total-score-value {
+    color: var(--foreground);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.puzzle-text {
+    color: var(--foreground);
+    margin-bottom: 30px;
+}
+
+.grid {
+   display: grid;
+    grid-template-columns: repeat(8, 1fr); 
+    gap: 3px;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 8px;
+    max-width: calc(60px * 8 + 7px * 7 + 16px); 
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    background: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    transition: var(--transition);
+}
+
+.word-panel {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.input-group input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid var(--input);
+    border-radius: var(--radius);
+    width: 200px;
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+.feedback {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 20px;
+    font-weight: bold;
+    min-height: 24px;
+}
+
+.feedback:hover {
+    background-color: var(--ring);
+}
+
+.word-list {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.word-list li {
+    margin: 8px 0;
+    padding: 8px;
+    background: var(--secondary);
+    color: var(--secondary-foreground);
+    border-radius: var(--radius);
+    transition: var(--transition);
+    cursor: help;
+    position: relative;
+    list-style-type: none;
+}
+
+.word-list li::before {
+    content: "?";
+    margin-right: 8px;
+    color: var(--muted-foreground);
+}
+
+.word-list li:hover::after {
+    content: attr(data-hint);
+    position: absolute;
+    left: 110%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--card);
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    white-space: nowrap;
+    font-size: 14px;
+    color: var(--foreground);
+    z-index: 10;
+}
+
+.word-list li.found {
+    background: var(--easy);
+    color: var(--primary-foreground);
+    cursor: default;
+}
+
+.word-list li.found::before {
+    content: "✓";
+    color: var(--primary-foreground);
+}
+
+/* Difficulty indicators */
+.difficulty-easy {
+    background-color: var(--easy);
+    color: var(--primary-foreground);
+}
+
+.difficulty-medium {
+    background-color: var(--medium);
+    color: var(--primary-foreground);
+}
+
+.difficulty-hard {
+    background-color: var(--hard);
+    color: var(--primary-foreground);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .completion-card {
+        padding: 30px 20px;
+    }
+    
+    .completion-card h2 {
+        font-size: 2rem;
+    }
+    
+    .score-items div {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .score-items div span {
+        font-size: 1.5rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .theme-switcher {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .score-container {
+        flex-direction: column;
+    }
+    
+    .score-items div {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .score-items span {
+        font-size: 1.3rem;
+    }
+    
+    .total-score-box {
+        width: 80%;
+    }
+}

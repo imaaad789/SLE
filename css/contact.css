@@ -1,0 +1,60 @@
+
+nav {
+    background-color: #1b5239 !important;
+    background: linear-gradient(#1b5239,#145739,#0f4f32) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    height: 100px !important;
+    text-decoration: none !important;
+}
+nav img {
+    max-width: 20% !important;
+    height: auto !important;
+}
+nav div ul {
+    display: flex !important;
+    list-style: none !important;
+}
+nav div li {
+    padding: 0px 25px !important;
+}
+nav div li a {
+    color: white !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0) !important;
+}
+.link-btn {
+    width: 50% !important;
+    border: 1px solid transparent !important;
+    background-color: transparent !important;
+    border-radius: 10px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease-in-out !important;
+}
+.link-btn::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(209, 206, 206, 0.519) !important;
+    backdrop-filter: blur(8px) !important;
+    opacity: 0 !important;
+    z-index: 0 !important;
+    transition: opacity 0.3s ease-in-out !important;
+}
+.link-btn:hover::before {
+    opacity: 0 !important;
+    z-index: 1 !important;
+}
+.link-btn:hover {
+    color: white !important;
+    border-color: white !important;
+    padding: 2px 20px !important;
+    background: rgba(192, 189, 189, 0.6) !important;
+    backdrop-filter: blur(1px) !important;
+}
