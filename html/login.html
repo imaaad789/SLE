@@ -83,8 +83,8 @@
     <div class="login-container">
         <h2>Login</h2>
         <form action="index.html" method="post" onsubmit="validation()">
-            <input type="text" class="input-field" placeholder="Username" required><br>
-            <input type="password" class="input-field" placeholder="Password" required><br>
+            <input type="text" class="input-field" placeholder="Username" required id="user"><br>
+            <input type="password" class="input-field" placeholder="Password" required id="email"><br>
             <div class="forgot-password">
                 <a href="forget.html">Forgot password?</a>
             </div>
@@ -95,6 +95,27 @@
         </form>
 
     </div>
-
+    <script>
+        function validation(){
+            let user=document.getElementById('user');
+            let email=document.getElementById('email');
+            if(user.value!=="xyz" || email.value!=="exemple@gmail.com"){
+                if(user){
+                    user.style.border="1px solid red";
+                }
+                if(email){
+                    email.style.border="1px solid red";
+                }
+                return false;
+            }else{
+                if(user){
+                    user.style.border="";
+                }
+                if(email){
+                    email.style.border="";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
