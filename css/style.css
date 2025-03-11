@@ -15,7 +15,6 @@ body {
 }
 
 nav {
-  /* background: linear-gradient(#1b5239, #145739, #0f4f32); */
   background-color: transparent;
   display: flex;
   justify-content: space-between;
@@ -119,22 +118,6 @@ nav {
   }
 }
 
-/* .hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.hamburger span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #ffffff;
-  transition: all 0.3s ease-in-out;
-} */
-
-/* Main Content Styles */
 main {
   display: flex;
   width: 100%;
