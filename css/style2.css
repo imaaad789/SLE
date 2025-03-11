@@ -1,10 +1,11 @@
 /* Base Styles */
 :root {
-    --background: #ffffff;
+    --background: #0f172a;
     --foreground: #0f172a;
     --card: #ffffff;
     --card-foreground: #0f172a;
     --primary: #15803d;
+    --primary-backg: #15803d;
     --primary-foreground: #f8fafc;
     --secondary: #f1f5f9;
     --secondary-foreground: #1e293b;
@@ -34,6 +35,7 @@
     --card: #1e293b;
     --card-foreground: #f8fafc;
     --primary: #22c55e;
+    --primary-backg: transparent;
     --primary-foreground: #0f172a;
     --secondary: #334155;
     --secondary-foreground: #f8fafc;
@@ -77,7 +79,7 @@ body {
 
 /* Header Styles */
 .header {
-    background-color: var(--primary);
+    background-color: var(--primary-backg);
     color: var(--primary-foreground);
     padding: 1rem 0;
     box-shadow: var(--shadow);
@@ -115,7 +117,7 @@ body {
 .theme-toggle {
     background: transparent;
     border: none;
-    color: var(--primary-foreground);
+    color: white;
     cursor: pointer;
     font-size: 1rem;
     padding: 0.5rem;
@@ -133,7 +135,7 @@ body {
     gap: 0.5rem;
     background: transparent;
     border: none;
-    color: var(--primary-foreground);
+    color: white;
     cursor: pointer;
     padding: 0.5rem;
     border-radius: var(--radius);
@@ -172,7 +174,7 @@ body {
 }
 
 .dropdown-content a {
-    color: var(--card-foreground);
+    color: white;
     padding: 0.75rem 1rem;
     text-decoration: none;
     display: flex;
@@ -264,7 +266,7 @@ body {
 }
 
 .tips-box {
-    background-color: rgba(21, 128, 61, 0.1);
+    background-color: rgba(21, 128, 60, 0.476);
     padding: 1.5rem;
     border-radius: var(--radius);
     margin: 1rem 0;
