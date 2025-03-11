@@ -5,7 +5,7 @@
     --card: #ffffff;
     --card-foreground: #0f172a;
     --primary: #15803d;
-    --primary-backg: #15803d;
+    --primary-backg: transparent;
     --primary-foreground: #f8fafc;
     --secondary: #f1f5f9;
     --secondary-foreground: #1e293b;

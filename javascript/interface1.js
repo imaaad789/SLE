@@ -363,12 +363,12 @@ class Phase1_De_Chaque_Niveau{
             valideDiv.className = 'valide-btn';
             valideDiv.id = 'valide-btn1';
 
-            let previousButtonDiv = document.createElement('div');
-            let previousButton = document.createElement('button');
-            previousButton.id = 'Previous';
-            previousButton.textContent = 'Previous';
-            previousButtonDiv.appendChild(previousButton);
-            valideDiv.appendChild(previousButtonDiv);
+            // let previousButtonDiv = document.createElement('div');
+            // let previousButton = document.createElement('button');
+            // previousButton.id = 'Previous';
+            // previousButton.textContent = 'Previous';
+            // previousButtonDiv.appendChild(previousButton);
+            // valideDiv.appendChild(previousButtonDiv);
 
             let nextButtonDiv = document.createElement('div');
             let nextButton = document.createElement('button');
@@ -603,7 +603,7 @@ class Phase3_de_chaque_Niveau{
                 }else if(element.value===""){
                     // pass
                 } else {
-                    element.style.border="2px solid orange"; // Close but not exact
+                    element.style.border="2px solid orange"; 
                 }
             });
             return score;
@@ -771,7 +771,7 @@ class MangerQuize{
                     </div>
                     <div class="button-group">
                         <button id="restart-btn" class="btn btn-primary">Restart Quiz</button>
-                        <button id="home-btn" class="btn btn-secondary"><a href="../html/index.html">Home</button>
+                        <button id="home-btn" class="btn btn-secondary"><a href="../html/index.html">Home</a></button>
                     </div>
                 </div>
             `;

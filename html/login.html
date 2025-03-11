@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/animation.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #0f172a;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,7 +18,7 @@
         }
 
         .login-container {
-            background-color: #fff;
+            background-color: #1e293b;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -27,7 +28,7 @@
         }
         h2 {
             text-align: center;
-            color: #333;
+            color: white;
         }
         .input-field {
             width: 100%;
@@ -63,6 +64,8 @@
         }
         .text-sign p{
             font-size: 14px;
+            color: white;
+            text-align: center;
         }
         .text-sign a{
             text-decoration: none;
@@ -83,9 +86,9 @@
 
     <div class="login-container">
         <h2>Login</h2>
-        <form action="index.html" method="post" onsubmit="validation()">
+        <form action="index.html" onsubmit="return validation()">
             <input type="text" class="input-field" placeholder="Username" required id="user"><br>
-            <input type="password" class="input-field" placeholder="Password" required id="email"><br>
+            <input type="password" class="input-field" placeholder="Password" required id="password"><br>
             <div class="forgot-password">
                 <a href="forget.html">Forgot password?</a>
             </div>
@@ -99,25 +102,31 @@
     <script>
         function validation(){
             let user=document.getElementById('user');
-            let email=document.getElementById('email');
-            if(user.value!=="xyz" || email.value!=="exemple@gmail.com"){
+            let password=document.getElementById('password');
+            if(user.value=="" || password.value==""){
+                alert("Please entre your password and password");
+                user.style.border="1px solid red";
+                password.style.border="1px solid red";
+                return false
+            }else if(user.value!=="sle" || password.value!=="sle" ){
                 if(user){
                     user.style.border="1px solid red";
+                    alert("The user is not valid.");
                 }
-                if(email){
-                    email.style.border="1px solid red";
+                if(password){
+                    password.style.border="1px solid red";
+                    alert("The password is not valid.");
                 }
-                return false;
-            }else{
-                if(user){
-                    user.style.border="";
-                }
-                if(email){
-                    email.style.border="";
-                }
-                return true;
+                return false
             }
+            if(user.value==="sle" && password.value==="sle"){
+                user.style.border="";
+                password.style.border="";
+                return true
+            }
+            
         }
     </script>
+    <script src="../javascript/animation.js"></script>
 </body>
 </html>

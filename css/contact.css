@@ -1,7 +1,8 @@
-
+body{
+    background-color: #0f172a !important;
+    color: white !important;
+}
 nav {
-    background-color: #1b5239 !important;
-    background: linear-gradient(#1b5239,#145739,#0f4f32) !important;
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
@@ -24,37 +25,79 @@ nav div li a {
     cursor: pointer !important;
     text-decoration: none !important;
     text-shadow: 1px 1px 2px rgb(0, 0, 0) !important;
+    transition: all 0.3s ease-in-out;
 }
-.link-btn {
-    width: 50% !important;
-    border: 1px solid transparent !important;
-    background-color: transparent !important;
-    border-radius: 10px !important;
-    position: relative !important;
-    overflow: hidden !important;
-    transition: all 0.3s ease-in-out !important;
+nav div li a:hover{
+    color: #28a66b !important;
 }
-.link-btn::before {
-    content: "" !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: rgba(209, 206, 206, 0.519) !important;
-    backdrop-filter: blur(8px) !important;
-    opacity: 0 !important;
-    z-index: 0 !important;
-    transition: opacity 0.3s ease-in-out !important;
+.container{
+    background: #1e293b !important;
+    padding: 25px;
+    border-radius: 0.5rem;
+    margin-bottom: 50px !important;
 }
-.link-btn:hover::before {
-    opacity: 0 !important;
-    z-index: 1 !important;
+.sidebar,.menu-icon{
+    display: none !important;
 }
-.link-btn:hover {
-    color: white !important;
-    border-color: white !important;
-    padding: 2px 20px !important;
-    background: rgba(192, 189, 189, 0.6) !important;
-    backdrop-filter: blur(1px) !important;
-}
+@media (max-width: 1200px) {
+
+    .menu-icon {
+      display: block !important;
+      font-size: 24px !important;
+      cursor: pointer !important;
+    }
+    .menu-icon {
+      font-size: 24px !important;
+      cursor: pointer !important;
+      color: white !important;
+    }
+    .sidebar {
+      display: block !important;
+      position: fixed !important;
+      top: 0 !important; 
+      right: -300px !important;
+      width: 250px !important;
+      height: 100% !important;
+      background: white !important;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2) !important;
+      transition: right 0.3s ease-in-out !important;
+      padding: 20px !important;
+      z-index: 400 !important;
+    }
+  
+    .sidebar.active {
+      right: 0 !important;
+    }
+  
+    .close-btn {
+      text-align: right !important;
+      font-size: 24px !important;
+      cursor: pointer !important;
+      color: black !important; 
+      margin-top: 20px !important;
+    }
+    .menu-container{
+      display: none !important;
+    }
+    .nav-links2 {
+      list-style: none !important;
+      padding: 20px 0 !important;
+    }
+    .nav-links2 li {
+      padding: 10px 0 !important;
+      border-bottom: 1px solid #ddd !important;
+      text-align: right !important;
+      transition: all 0.2s !important;
+  
+    }
+    .nav-links2 a {
+      text-decoration: none !important;
+      color: black !important;
+      font-weight: bolder !important;
+      font-size: 18px !important;
+      transition: all 0.3s ease-in-out !important;
+    }
+    .nav-links2 a:hover {
+      color: #007740 !important;
+    }
+  }
