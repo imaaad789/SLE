@@ -663,12 +663,15 @@ h1, h2, h3 {
 
 @media (max-width: 480px) {
     .score-container {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 200px 200px;
+        grid-template-rows: 200px 200px; 
+        gap: 10px; 
     }
     
     .score-items div {
-        width: 90px;
-        height: 90px;
+        width: 100px;
+        height: 100px;
     }
     
     .score-items span {
