@@ -405,8 +405,9 @@ article p {
   }
   .article-text{
     text-align: center;
-    margin-left: 0;
-    padding-right: 0;
+    margin: auto;
+    padding: 20px 0px;
+    padding-bottom: 34px;
   }
 }
 
