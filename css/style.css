@@ -403,6 +403,11 @@ article p {
   .footer-links {
     width: 100%;
   }
+  .article-text{
+    text-align: center;
+    margin-left: 0;
+    padding-right: 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -432,5 +437,6 @@ article p {
     width: 100%;
     text-align: center;
   }
+  
 }
 
