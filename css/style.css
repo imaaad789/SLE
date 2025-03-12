@@ -438,6 +438,11 @@ article p {
     width: 100%;
     text-align: center;
   }
-  
+  .article-text{
+    text-align: center;
+    margin: auto;
+    padding: 20px 0px;
+    padding-bottom: 34px;
+  }
 }
 
