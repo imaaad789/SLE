@@ -1,64 +1,64 @@
-.stars-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-    pointer-events: none;
+.etoil-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
 }
   
-.star {
-    position: absolute;
-    background-color: white;
-    border-radius: 50%;
+.etoil {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: etoilFloat 15s ease-in-out infinite alternate;
+}
+  
+@keyframes etoilFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
     opacity: 0.7;
-    animation: starFloat 15s ease-in-out infinite alternate;
+  }
+  50% {
+    transform: translateY(-40px) translateX(-10px);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-20px) translateX(5px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
 }
   
-@keyframes starFloat {
-    0% {
-      transform: translateY(0) translateX(0);
-      opacity: 0.3;
-    }
-    25% {
-      transform: translateY(-20px) translateX(10px);
-      opacity: 0.7;
-    }
-    50% {
-      transform: translateY(-40px) translateX(-10px);
-      opacity: 1;
-    }
-    75% {
-      transform: translateY(-20px) translateX(5px);
-      opacity: 0.7;
-    }
-    100% {
-      transform: translateY(0) translateX(0);
-      opacity: 0.3;
-    }
-}
-  
-.dark .star {
-    background-color: #ffffff;
-    box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.4);
+.dark .etoil {
+  background-color: #ffffff;
+  box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.4);
 }
 
 body {
-    position: relative;
+  position: relative;
 }
 
-.star:nth-child(3n) {
-    animation-duration: 12s;
+.etoil:nth-child(3n) {
+  animation-duration: 12s;
 }
 
-.star:nth-child(3n + 1) {
-    animation-duration: 18s;
+.etoil:nth-child(3n+1) {
+  animation-duration: 18s;
 }
 
-.star:nth-child(5n) {
-    animation-duration: 20s;
+.etoil:nth-child(5n) {
+  animation-duration: 20s;
 }
   
   

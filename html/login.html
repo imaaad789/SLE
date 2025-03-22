@@ -6,6 +6,7 @@
     <title>Login Page</title>
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/animation.css">
+    <script src="../jquery/jquery-3.7.1.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -90,7 +91,7 @@
             <input type="text" class="input-field" placeholder="Username" required id="user"><br>
             <input type="password" class="input-field" placeholder="Password" required id="password"><br>
             <div class="forgot-password">
-                <a href="forget.html">Forgot password?</a>
+                <a href="#" id="forget">Forgot password?</a>
             </div>
             <button type="submit" class="login-btn">Login</button>
             <div class="text-sign">
@@ -126,6 +127,9 @@
             }
             
         }
+        document.getElementById('forget').addEventListener('click',()=>{
+            alert("This operation is not available at the moment!!");
+        })
     </script>
     <script src="../javascript/animation.js"></script>
 </body>
