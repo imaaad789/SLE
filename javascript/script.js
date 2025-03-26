@@ -116,4 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert(`Starting ${difficulty} test. This would redirect to the ${difficulty} test page.`);
         });
     });
+    document.getElementById('Profile').addEventListener('click',()=>{
+        alert("This operation is not available at the moment!!");
+    })
 });
