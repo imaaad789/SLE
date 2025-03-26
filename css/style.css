@@ -201,7 +201,6 @@ main p {
   transform: scale(0.95);
 }
 
-/* About Section Styles */
 .about {
   text-align: center;
   margin: 40px 0;
@@ -252,7 +251,6 @@ article p {
   letter-spacing: 0.5px;
 }
 
-/* Social Share Styles */
 .social-share {
   display: flex;
   align-items: center;
@@ -283,7 +281,6 @@ article p {
   fill: white;
 }
 
-/* Footer Styles */
 .footer-container {
   padding: 40px 5%;
 }

@@ -150,7 +150,6 @@ body {
     transform: rotate(360deg);
 }
 
-/* Dropdown Styles */
 .dropdown {
     position: relative;
 }
@@ -195,7 +194,6 @@ body {
     animation: fadeIn 0.2s ease;
 }
 
-/* Main Content Styles */
 .main-content {
     padding: 2rem 0;
 }
@@ -207,7 +205,6 @@ body {
     margin-bottom: 3rem;
 }
 
-/* Card Styles */
 .card {
     background-color: var(--card);
     color: var(--card-foreground);
@@ -236,7 +233,6 @@ body {
     padding: 1.5rem;
 }
 
-/* Welcome Box Styles */
 .welcome-box {
     height: 100%;
 }
@@ -286,7 +282,6 @@ body {
     font-weight: 500;
 }
 
-/* Info Section Styles */
 .info-section {
     display: flex;
     flex-direction: column;
@@ -361,7 +356,6 @@ body {
     transition: width 1s ease;
 }
 
-/* Timer Styles */
 .timer-card {
     text-align: center;
 }
@@ -403,7 +397,6 @@ body {
     color: var(--muted-foreground);
 }
 
-/* Test Options Styles */
 .section-title {
     font-size: 2rem;
     font-weight: 600;
@@ -536,7 +529,6 @@ body {
     transform: scale(0.98);
 }
 
-/* Animation Styles */
 @keyframes fadeIn {
     from {
         opacity: 0;
