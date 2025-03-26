@@ -139,21 +139,19 @@ const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 let foundWords = [];
 let gridCells = [];
-let score = 0; // Variable pour stocker le score
+let score = 0;
 
 function initializeGame() {
     createGrid();
     populateGrid();
     renderWordList();
-    
-    // Show the puzzle div that was hidden
     document.getElementById('puzzle').style.display = 'block';
 }
 
 function createGrid() {
     const grid = document.getElementById('crossword');
     grid.innerHTML = '';
-    gridCells = []; // Reset gridCells array
+    gridCells = [];
     
     for (let i = 0; i < GRID_SIZE; i++) {
         for (let j = 0; j < GRID_SIZE; j++) {
@@ -168,12 +166,9 @@ function createGrid() {
 }
 
 function populateGrid() {
-    // Fill grid with random letters
     gridCells.forEach(cell => {
         cell.textContent = ALPHABET[Math.floor(Math.random() * ALPHABET.length)];
     });
-
-    // Place hidden words
     WORDS.forEach(({ word, row, col, direction }) => {
         const letters = word.split('');
         for (let i = 0; i < letters.length; i++) {
@@ -204,25 +199,20 @@ function validateWord() {
     const input = document.getElementById('wordInput');
     const feedback = document.getElementById('feedback');
     const userWord = input.value.trim().toUpperCase();
-
     if (!userWord) {
         showFeedback('Please enter a word', 'error');
         return;
     }
-
     if (foundWords.includes(userWord)) {
         showFeedback('Word already found!', 'error');
         return;
     }
-
     const targetWord = WORDS.find(w => w.word === userWord);
-    
     if (!targetWord) {
         showFeedback('Word not in puzzle', 'error');
         return;
     }
 
-    // Vérifier si la réponse est correcte et ajouter des points
     const result = checkAnswer(userWord);
     
     if (result) {
@@ -236,16 +226,11 @@ function validateWord() {
     }
 }
 
-// Nouvelle fonction pour vérifier les réponses et ajouter des points
 function checkAnswer(word) {
-    const targetWord = WORDS.find(w => w.word === word);
-    
+    const targetWord = WORDS.find(w => w.word === word); 
     if (!targetWord) return false;
-    
     const isCorrect = verifyWordPlacement(targetWord);
-    
     if (isCorrect) {
-        // Ajouter 2 points pour une réponse correcte
         score += 2;
         return true;
     }
@@ -253,7 +238,6 @@ function checkAnswer(word) {
     return false;
 }
 
-// Fonction pour obtenir le score actuel
 function getScore() {
     return score;
 }
@@ -824,7 +808,6 @@ class MangerQuize{
                     this.startQuize();
                 });
             } else {
-                // If no start button exists, create one
                 let main = document.querySelector("main");
                 if (!main) {
                     main = document.createElement("main");
@@ -852,63 +835,41 @@ class MangerQuize{
     }
 }
 
-// Function to toggle between light and dark themes
 function toggleTheme() {
-    // Check if dark mode is already active
     const isDarkMode = document.body.classList.contains('dark');
-    
-    // Toggle the dark class on the body
     document.body.classList.toggle('dark');
-    
-    // Update the icon in the theme switcher button
     const themeIcon = document.getElementById('theme-icon');
-    
     if (isDarkMode) {
-        // Switching to light mode
         themeIcon.classList.remove('fa-moon');
         themeIcon.classList.add('fa-sun');
     } else {
-        // Switching to dark mode
         themeIcon.classList.remove('fa-sun');
         themeIcon.classList.add('fa-moon');
     }
-    
-    // Save the user's preference in localStorage
     localStorage.setItem('theme', isDarkMode ? 'light' : 'dark');
 }
 
-// Function to initialize theme based on user's saved preference
 function initTheme() {
-    // Check if user has a saved theme preference
     const savedTheme = localStorage.getItem('theme');
     const themeIcon = document.getElementById('theme-icon');
-    
-    // Set default icon to sun (light mode)
     themeIcon.classList.add('fa-sun');
-    
     if (savedTheme === 'dark') {
-        // Apply dark theme if saved
         document.body.classList.add('dark');
         themeIcon.classList.remove('fa-sun');
         themeIcon.classList.add('fa-moon');
     } else if (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // Apply dark theme if user's system preference is dark
         document.body.classList.add('dark');
         themeIcon.classList.remove('fa-sun');
         themeIcon.classList.add('fa-moon');
     }
 }
 
-// Run when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Add theme switcher button to the body
     const themeSwitcher = document.createElement('button');
     themeSwitcher.className = 'theme-switcher';
     themeSwitcher.innerHTML = '<i id="theme-icon" class="fas"></i>';
     themeSwitcher.addEventListener('click', toggleTheme);
     document.body.appendChild(themeSwitcher);
-    
-    // Initialize theme
     initTheme();
 });
 

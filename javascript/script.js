@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let secondsElement=document.getElementById('seconds');
     let testCards=document.querySelectorAll('.test-card');
     let testButtons=document.querySelectorAll('.test-button');
+    let dateTarget=0;
+    let HourTarget=2;
+    let MinutesTarget=59;
+    let SecondTarget=59;
 
     let savedTheme=localStorage.getItem('theme');
     if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -60,25 +64,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function updateCountdown() {
-        let targetDate=new Date('2025-03-29T23:59:59').getTime();
-        let now=Date.now();
-        let difference=targetDate - now;
-        if (difference <= 0) {
-            daysElement.textContent='00';
-            hoursElement.textContent='00';
-            minutesElement.textContent='00';
-            secondsElement.textContent='00';
-            return;
+        SecondTarget=SecondTarget-1;
+        if(SecondTarget==0){
+            MinutesTarget=MinutesTarget-1;
+            SecondTarget=59;
+            if(MinutesTarget==0){
+                SecondTarget=59;
+                MinutesTarget=59;
+                HourTarget=HourTarget-1;
+            }if(HourTarget<=0){
+                SecondTarget=0;
+                MinutesTarget=0;
+                HourTarget=0;
+            }
         }
-        let days=Math.floor(difference / (1000 * 60 * 60 * 24));
-        let hours=Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes=Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds=Math.floor((difference % (1000 * 60)) / 1000);
-
-        daysElement.textContent=days.toString().padStart(2, '0');
-        hoursElement.textContent=hours.toString().padStart(2, '0');
-        minutesElement.textContent=minutes.toString().padStart(2, '0');
-        secondsElement.textContent=seconds.toString().padStart(2, '0');
+        if (HourTarget===0 && MinutesTarget===0 && SecondTarget===0) {
+            clearInterval(countdownInterval);
+        }
+        let days=0;
+        daysElement.textContent=days.toString().padStart(2,'0');
+        hoursElement.textContent=HourTarget.toString().padStart(2,'0');
+        minutesElement.textContent=MinutesTarget.toString().padStart(2,'0');
+        secondsElement.textContent=SecondTarget.toString().padStart(2,'0');
 
         secondsElement.classList.add('pulse');
         setTimeout(() => {
@@ -102,7 +109,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Test Buttons Click Event
     testButtons.forEach(button => {
         button.addEventListener('click', function () {
             let card=this.closest('.test-card');

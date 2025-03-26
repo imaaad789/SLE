@@ -173,7 +173,7 @@ function initializeGame() {
 function createGrid() {
     const grid = document.getElementById('crossword');
     grid.innerHTML = '';
-    gridCells = []; // Reset gridCells array
+    gridCells = []; 
 
     
     for (let i = 0; i < GRID_SIZE; i++) {
@@ -190,12 +190,9 @@ function createGrid() {
 
 
 function populateGrid() {
-    // Fill grid with random letters
     gridCells.forEach(cell => {
         cell.textContent = ALPHABET[Math.floor(Math.random() * ALPHABET.length)];
     });
-
-    // Place hidden words
     WORDS.forEach(({ word, row, col, direction }) => {
         const letters = word.split('');
         for (let i = 0; i < letters.length; i++) {
@@ -263,7 +260,6 @@ function checkAnswer(word) {
     const isCorrect = verifyWordPlacement(targetWord);
     
     if (isCorrect) {
-        // Ajouter 2 points pour une réponse correcte
         score += 2;
         return true;
     }
@@ -271,7 +267,6 @@ function checkAnswer(word) {
     return false;
 }
 
-// Fonction pour obtenir le score actuel
 function getScore() {
     return score;
 }
@@ -620,7 +615,7 @@ class Phase3_de_chaque_Niveau{
                 }else if(element.value===""){
                     // pass
                 } else {
-                    element.style.border="2px solid orange"; // Close but not exact
+                    element.style.border="2px solid orange";
                 }
             });
             return score;
@@ -869,63 +864,41 @@ class MangerQuize{
     }
 }
 
-// Function to toggle between light and dark themes
 function toggleTheme() {
-    // Check if dark mode is already active
     const isDarkMode = document.body.classList.contains('dark');
-    
-    // Toggle the dark class on the body
     document.body.classList.toggle('dark');
-    
-    // Update the icon in the theme switcher button
     const themeIcon = document.getElementById('theme-icon');
-    
     if (isDarkMode) {
-        // Switching to light mode
         themeIcon.classList.remove('fa-moon');
         themeIcon.classList.add('fa-sun');
     } else {
-        // Switching to dark mode
         themeIcon.classList.remove('fa-sun');
         themeIcon.classList.add('fa-moon');
     }
-    
-    // Save the user's preference in localStorage
     localStorage.setItem('theme', isDarkMode ? 'light' : 'dark');
 }
 
-// Function to initialize theme based on user's saved preference
 function initTheme() {
-    // Check if user has a saved theme preference
     const savedTheme = localStorage.getItem('theme');
     const themeIcon = document.getElementById('theme-icon');
-    
-    // Set default icon to sun (light mode)
     themeIcon.classList.add('fa-sun');
-    
     if (savedTheme === 'dark') {
-        // Apply dark theme if saved
         document.body.classList.add('dark');
         themeIcon.classList.remove('fa-sun');
         themeIcon.classList.add('fa-moon');
     } else if (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // Apply dark theme if user's system preference is dark
         document.body.classList.add('dark');
         themeIcon.classList.remove('fa-sun');
         themeIcon.classList.add('fa-moon');
     }
 }
 
-// Run when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Add theme switcher button to the body
     const themeSwitcher = document.createElement('button');
     themeSwitcher.className = 'theme-switcher';
     themeSwitcher.innerHTML = '<i id="theme-icon" class="fas"></i>';
     themeSwitcher.addEventListener('click', toggleTheme);
     document.body.appendChild(themeSwitcher);
-    
-    // Initialize theme
     initTheme();
 });
 
